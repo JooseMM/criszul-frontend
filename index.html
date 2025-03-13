@@ -30,39 +30,28 @@
     <meta property="og:url" content="https://www.yourwebsite.com/page-url" />
 
     <!-- CSS and JavaScript -->
+    <link rel="stylesheet" href="public/styles-reset.css" />
     <link rel="stylesheet" href="public/styles.css" />
     <script src="public/scripts.ts" defer></script>
   </head>
   <body>
     <!-- Header Section -->
-    <header class="home-navigation">
+    <header class="flex horizontal-flow | home-navigation">
       <h1>Criszul</h1>
       <nav>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/beneficios">Beneficios</a></li>
-          <li><a href="/testimonios">Testimonios</a></li>
-          <li><a href="/contacto">Contacto</a></li>
+        <ul class="flex horizontal-flow">
+          <li><a class="active-link" id="navLink" href="/">Inicio</a></li>
+          <li><a id="navLink" href="#beneficios">Beneficios</a></li>
+          <li><a id="navLink" href="#testimonios">Testimonios</a></li>
+          <li><a id="navLink" href="#contacto">Contacto</a></li>
         </ul>
+        <button id="menu-activator">
+          <img src="public/icons/hamburguer-button.svg" />
+        </button>
       </nav>
     </header>
-
     <!-- Main Content -->
-    <main>
-      <article>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-      <article>
-        <h2>Subheading (Include Related Keywords)</h2>
-        <p>Write high-quality, keyword-rich, and user-focused content here.</p>
-      </article>
-    </main>
-
+    <main></main>
     <!-- Footer Section -->
     <footer>
       <p>&copy; 2025 Your Brand. All Rights Reserved.</p>

@@ -1,8 +1,45 @@
 :root {
+  /* font size */
+  --secundary-header-ft-size: 1.25rem;
+  --primary-header-ft-size: 1.3rem;
+  --tertiary-header-ft-size: 1.25rem;
+  --base-ft-size: 1rem;
+  /* font color */
+  --primary-ft-color: #fff;
+  --secundary-ft-color: #bababa;
+  /* background */
+  --body-background: #090d0f;
+  /* stroke */
+  --gradient-box-stroke: linear-gradient(90deg, #2d3339, #b4b5b7);
+  /* primary colors */
+  --main-color: #3b5e7e;
+  --secundary-color: #d6dee4;
+  --soft-gray-color: #aebbca;
+  /* shadow  */
+  --box-shadow: 0px 0px 50px #11171b;
 }
-.home-navigation {
+body {
+  background-color: var(--body-background);
+  color: var(--secundary-ft-color);
+}
+/* utility classes */
+.center-elements {
+  align-items: center;
+  justify-content: center;
+}
+.horizontal-flow {
+  flex-direction: row;
+}
+.flex {
   display: flex;
-  justify-content: space-between;
-  padding:;
 }
-
+.vertical-flow {
+  flex-direction: column;
+}
+.active-link {
+  color: var(--primary-ft-color);
+}
+/* custom classes */
+.home-navigation {
+  justify-content: space-between;
+}
