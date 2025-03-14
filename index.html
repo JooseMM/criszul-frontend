@@ -36,19 +36,23 @@
   </head>
   <body>
     <!-- Header Section -->
-    <header class="flex horizontal-flow | home-navigation">
-      <h1>Criszul</h1>
+    <header class="flex center-y | home-navigation">
+      <h1 class="logo">Criszul</h1>
       <nav>
-        <div class="box-border">
-          <ul class="box-container box-content mobile-menu">
+        <div class="box-border navigation-menu">
+          <ul class="box-content">
             <li><a class="active-link" id="navLink" href="/">Inicio</a></li>
             <li><a id="navLink" href="#beneficios">Beneficios</a></li>
             <li><a id="navLink" href="#testimonios">Testimonios</a></li>
             <li><a id="navLink" href="#contacto">Contacto</a></li>
           </ul>
         </div>
-        <button id="menu-activator">
-          <img src="public/icons/hamburguer-button.svg" />
+        <button id="menuActivator" class="center-y flex">
+          <img
+            src="public/icons/hamburguer-button.svg"
+            width="35"
+            height="35"
+          />
         </button>
       </nav>
     </header>

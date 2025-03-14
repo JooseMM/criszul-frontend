@@ -1,0 +1,1 @@
+function toggleNavigationMenu(event: MouseEvent) {}
