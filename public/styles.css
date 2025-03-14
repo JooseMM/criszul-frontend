@@ -9,10 +9,10 @@
   --secundary-ft-color: #bababa;
   /* background */
   --body-background: #090d0f;
+  --body-light-background: #11171b;
   --box-background: rgba(13, 17, 21, 0.7);
   /* border */
   --gradient-light-color: #b4b5b7;
-  --gradient-dark-color: rgba(180, 181, 183, 1);
   --gradient-transparent-color: rgba(180, 181, 183, 0);
   --radius: 10px;
   /* primary colors */
@@ -20,14 +20,19 @@
   --secundary-color: #d6dee4;
   --soft-gray-color: #aebbca;
   /* shadow  */
-  --box-shadow: 0px 0px 50px #11171b;
+  --box-shadow: 0px 0px 50px var(--body-light-background);
 }
 body {
   background-color: var(--body-background);
+  background: linear-gradient(
+    120deg,
+    var(--body-light-background),
+    var(--body-background)
+  );
   color: var(--secundary-ft-color);
 }
 /* custom classes */
-.home-navigation {
+.navigation-container {
   position: relative;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -82,7 +87,7 @@ body {
 .open-menu {
   display: flex;
 }
-.vertical-flow {
+.y-flow {
   flex-direction: column;
 }
 .active-link {
