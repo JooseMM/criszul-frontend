@@ -1,17 +1,17 @@
+const menu = document.getElementById("menu")!;
+const menuBtn = document.getElementById("menuBtn")!;
+
 const toggleNavigationMenu = (): void => {
   menu.classList.toggle("open-menu");
 };
 
-const menu = document.getElementById("menu")!;
-const linkContainer = document.getElementById("linkContainer")!;
-const menuBtn = document.getElementById("menuBtn")!;
-
 /* adding behavior to the navbar menu button */
 menuBtn.onclick = toggleNavigationMenu;
 
-/* when anything else but the menu is click close it
+/***
+ * when anything else but the menu is click close it
  * if (excludedElement && event.target !== excludedElement && !excludedElement.contains(event.target as Node))
- * */
+ ***/
 document.addEventListener("click", (event: MouseEvent) => {
   const target = event.target as Node;
   if (
