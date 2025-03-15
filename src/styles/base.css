@@ -64,6 +64,9 @@ button {
   line-height: 116%;
   letter-spacing: 0.1rem;
 }
+button {
+  cursor: pointer;
+}
 p {
   line-height: 150%;
   letter-spacing: 0.05rem;
@@ -85,16 +88,12 @@ body {
   position: relative;
   top: -4.8rem;
 }
-.box-border {
-  border-radius: 2rem;
-  background: linear-gradient(
-    -40deg,
-    var(--gradient-transparent-color),
-    85%,
-    var(--gradient-light-color)
-  );
-  padding: 1px;
-  width: fit-content;
+.main-button {
+  padding: 0.9rem 3rem;
+  border-radius: 1.5rem;
+  background-color: var(--main-color);
+  font-weight: 700;
+  color: var(--primary-ft-color);
 }
 .btn-border-light {
   border-radius: 2rem;
@@ -103,6 +102,18 @@ body {
     var(--gradient-transparent-color),
     20%,
     #819cb5
+  );
+  padding: 1px;
+  width: fit-content;
+  transition: ease-in-out 200ms;
+}
+.box-border {
+  border-radius: 2rem;
+  background: linear-gradient(
+    -40deg,
+    var(--gradient-transparent-color),
+    85%,
+    var(--gradient-light-color)
   );
   padding: 1px;
   width: fit-content;
@@ -124,5 +135,15 @@ body {
   body {
     background: none;
     background-color: var(--body-background);
+  }
+  .btn-border-light {
+    outline-style: solid;
+    outline-width: 1px;
+    outline-offset: -1px;
+    outline-color: transparent;
+
+    &:hover {
+      outline-color: var(--secundary-ft-color);
+    }
   }
 }

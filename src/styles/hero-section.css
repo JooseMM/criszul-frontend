@@ -1,5 +1,6 @@
 .hero-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -12,7 +13,7 @@
   display: none;
 }
 .mobile-image {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   width: 85%;
   display: flex;
   flex-direction: column;
@@ -48,12 +49,30 @@
     max-width: clamp(15rem, 75%, 30rem);
   }
 }
-.main-button {
-  padding: 0.9rem 3rem;
-  border-radius: 1.5rem;
-  background-color: var(--main-color);
-  font-weight: 700;
-  color: var(--primary-ft-color);
+.scrollBtn {
+  position: absolute;
+  right: 50%;
+  bottom: -10%;
+  width: 2.5rem;
+  transition: ease-in-out;
+  animation-duration: 2s;
+  animation-name: ping-pong;
+  animation-iteration-count: infinite;
+}
+
+.scrollBtn:hover {
+  animation-play-state: paused;
+}
+@keyframes ping-pong {
+  0% {
+    transform: translate(50%, 0);
+  }
+  50% {
+    transform: translate(50%, 1rem);
+  }
+  100% {
+    transform: translate(50%, 0);
+  }
 }
 @media (min-width: 75rem) {
   .hero-container {
@@ -126,13 +145,13 @@
         border-radius: 3rem;
         font-size: clamp(1rem, 1.5vw, 1.3rem);
       }
-
-      .scrollBtn {
-        cursor: pointer;
-        position: absolute;
-        right: 20%;
-        top: 110%;
-      }
+    }
+    .scrollBtn {
+      width: 3.5rem;
+      position: absolute;
+      right: 20%;
+      top: 110%;
+      transform: none;
     }
   }
 }
