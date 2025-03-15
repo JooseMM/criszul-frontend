@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+:root {
+  /* font size */
+  --primary-header-ft-size: clamp(1.3rem, 3.8vw, 4rem);
+  --secundary-header-ft-size: clamp(1.1rem, 2.8vw, 1.3rem);
+  --tertiary-header-ft-size: clamp(1rem, 2.5vw, 1.1rem);
+  --base-ft-size: 1rem;
+  /* font color */
+  --primary-ft-color: #fff;
+  --secundary-ft-color: #bababa;
+  /* background */
+  --body-background: #090d0f;
+  --body-light-background: #11171b;
+  --box-background: rgba(13, 17, 21, 0.7);
+  /* border */
+  --gradient-light-color: #b4b5b7;
+  --gradient-transparent-color: rgba(180, 181, 183, 0);
+  --roundness: 10px;
+  /* primary colors */
+  --main-color: #3b5e7e;
+  --secundary-color: #d6dee4;
+  --soft-gray-color: #aebbca;
+  /* shadow  */
+}
+
+main {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+button {
+  line-height: 116%;
+  letter-spacing: 0.1rem;
+}
+p {
+  line-height: 150%;
+  letter-spacing: 0.05rem;
+}
+b {
+  color: var(--primary-ft-color);
+  font-weight: 950;
+}
+body {
+  background: linear-gradient(
+    120deg,
+    var(--body-light-background),
+    var(--body-background)
+  );
+  color: var(--secundary-ft-color);
+  font-family: "Poppins", sans-serif;
+}
+.fix-hero-image {
+  position: relative;
+  top: -4.8rem;
+}
+.box-border {
+  border-radius: 2rem;
+  background: linear-gradient(
+    -40deg,
+    var(--gradient-transparent-color),
+    85%,
+    var(--gradient-light-color)
+  );
+  padding: 1px;
+  width: fit-content;
+}
+.btn-border-light {
+  border-radius: 2rem;
+  background: linear-gradient(
+    -60deg,
+    var(--gradient-transparent-color),
+    20%,
+    #819cb5
+  );
+  padding: 1px;
+  width: fit-content;
+}
+.box-content {
+  border-radius: inherit;
+  background-color: var(--box-background);
+  backdrop-filter: blur(5px);
+  padding: 2.5rem 3.5rem;
+}
+/* tablet devices */
+@media (min-width: 43rem) {
+}
+/* desktop devices */
+@media (min-width: 60rem) {
+  main {
+    padding-inline: 4rem;
+  }
+  body {
+    background: none;
+    background-color: var(--body-background);
+  }
+}

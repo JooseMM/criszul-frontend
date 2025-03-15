@@ -1,0 +1,138 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > div:first-child {
+    margin-bottom: 0.8rem;
+  }
+}
+.desktop-image {
+  display: none;
+}
+.mobile-image {
+  margin-top: 1rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    border: 0.1rem solid var(--gradient-light-color);
+    border-radius: 1.5rem;
+  }
+
+  img:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+}
+.hero-description {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: var(--primary-header-ft-size);
+    font-weight: 950;
+    max-width: clamp(18.7rem, 90%, 40rem);
+  }
+
+  p {
+    margin-block: 0.7rem 1rem;
+    max-width: clamp(15rem, 75%, 30rem);
+  }
+}
+.main-button {
+  padding: 0.9rem 3rem;
+  border-radius: 1.5rem;
+  background-color: var(--main-color);
+  font-weight: 700;
+  color: var(--primary-ft-color);
+}
+@media (min-width: 75rem) {
+  .hero-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 3rem;
+
+    .mobile-image {
+      display: none;
+    }
+    .desktop-image {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%; /* Slightly larger than the element */
+        height: 120%; /* Slightly larger than the element */
+        background: radial-gradient(
+          circle,
+          rgba(17, 23, 27, 1),
+          var(--gradient-transparent-color) 70%
+        );
+        z-index: -1; /* Place the shadow behind the element */
+        filter: blur(10px); /* Add a blur effect for smoothness */
+      }
+
+      .image-row {
+        width: fit-content;
+        height: fit-content;
+        display: inherit;
+        margin-bottom: 1.2rem;
+
+        > img:not(:last-child) {
+          margin-right: 1rem;
+        }
+        > img {
+          width: 50%;
+        }
+      }
+      img {
+        border: 0.1rem solid #fff;
+        border-radius: 1.5rem;
+      }
+      > img {
+        width: 100%;
+      }
+    }
+    .hero-description {
+      text-align: left;
+      justify-content: start;
+      align-items: start;
+      max-width: clamp(25rem, 40vw, 38rem);
+      position: relative;
+
+      p {
+        margin-block: 1rem;
+        max-width: 30rem;
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+      }
+
+      .main-button {
+        padding: 1rem 3rem;
+        border-radius: 3rem;
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+      }
+
+      .scrollBtn {
+        cursor: pointer;
+        position: absolute;
+        right: 20%;
+        top: 110%;
+      }
+    }
+  }
+}
