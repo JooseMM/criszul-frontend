@@ -21,6 +21,7 @@ header {
 .toggle-box {
   display: none;
   position: absolute;
+  z-index: 100;
   right: 2rem;
   top: 4rem;
   flex-direction: column;
