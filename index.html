@@ -35,13 +35,14 @@
     <link rel="stylesheet" href="src/styles/navbar.css" />
     <link rel="stylesheet" href="src/styles/hero-section.css" />
     <link rel="stylesheet" href="src/styles/benefit.css" />
+    <link rel="stylesheet" href="src/styles/testimonials.css" />
     <!-- Typescript -->
     <script src="/src/scripts/navbarMenuBehavior.ts" defer></script>
   </head>
   <body>
     <!-- Header Section -->
-    <header>
-      <a class="logo" href="/">Criszul</a>
+    <header class="home__header">
+      <a class="home__header__logo" href="/">Criszul</a>
       <!-- mobile navigation -->
       <nav>
         <div id="popUpMenu" class="box toggle--box">
@@ -56,7 +57,7 @@
           <img src="/icons/hamburguer-button.svg" width="35" height="35" />
         </button>
         <!-- desktop navigation -->
-        <div class="desktop-navigation">
+        <div class="home__header__desktop">
           <ul>
             <li><a style="color: #fff" href="/">Inicio</a></li>
             <li><a href="#beneficios">Beneficios</a></li>
@@ -72,15 +73,15 @@
     </header>
     <main>
       <!-- hero -->
-      <section class="hero-container">
+      <section class="hero">
         <!-- mobile images -->
-        <div class="mobile-image">
+        <div class="hero__image--mobile">
           <img src="/images/mobile-hero-one.png" />
           <img src="/images/mobile-hero-two.png" />
           <img src="/images/mobile-hero-three.png" />
         </div>
         <!-- description -->
-        <div class="hero-description">
+        <div class="hero__description">
           <h1>
             Lorem ipsum dolor sit amet, consectetur <b>adipiscing elit.</b>
           </h1>
@@ -88,16 +89,16 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
             amet massa mauris. Suspendisse potenti.
           </p>
-          <div class="btn-border-light">
-            <button class="main-button">Contactanos</button>
+          <div class="button__border--light">
+            <button class="button">Contactanos</button>
           </div>
-          <button class="scrollBtn">
+          <button class="scroll_button">
             <img src="icons/arrow-down.png" />
           </button>
         </div>
         <!-- desktop images -->
-        <div class="desktop-image">
-          <div class="image-row">
+        <div class="hero__image--desktop">
+          <div class="hero__image--desktop__row">
             <img src="/images/desktop-hero-one.png" />
             <img src="/images/desktop-hero-two.png" />
           </div>
@@ -170,8 +171,45 @@
         </ul>
       </section>
       <section class="testimonials">
-        <h2>¡Nuestros clientes hablan!</h2>
-        <div class="testimonials__container"></div>
+        <h2>¡Nuestros<br /><b>clientes</b> hablan!</h2>
+        <div class="testimonials__container">
+          <div class="box box--testimonials">
+            <div class="box__content box__content--testimonials">
+              <img src="public/images/testimonial.png" />
+              <div>
+                <span>Daniel Garren</span>
+                <p>
+                  Criszul es una opción destacada para quienes buscan
+                  confiabilidad y profesionalismo en sus envíos.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box box--testimonials">
+            <div class="box__content box__content--testimonials">
+              <img src="public/images/testimonial.png" />
+              <div>
+                <span>Daniel Garren</span>
+                <p>
+                  Criszul es una opción destacada para quienes buscan
+                  confiabilidad y profesionalismo en sus envíos.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box box--testimonials">
+            <div class="box__content box__content--testimonials">
+              <img src="public/images/testimonial.png" />
+              <div>
+                <span>Daniel Garren</span>
+                <p>
+                  Criszul es una opción destacada para quienes buscan
+                  confiabilidad y profesionalismo en sus envíos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 

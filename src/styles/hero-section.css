@@ -1,4 +1,4 @@
-.hero-container {
+.hero {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -9,10 +9,10 @@
     margin-bottom: 0.8rem;
   }
 }
-.desktop-image {
+.hero__image--desktop {
   display: none;
 }
-.mobile-image {
+.hero__image--mobile {
   margin-top: 0.5rem;
   width: 85%;
   max-width: 43rem;
@@ -31,7 +31,7 @@
     margin-bottom: 0.8rem;
   }
 }
-.hero-description {
+.hero__description {
   display: flex;
   flex-direction: column;
   padding-block: 0.5rem;
@@ -50,7 +50,7 @@
     max-width: clamp(15rem, 75%, 30rem);
   }
 }
-.scrollBtn {
+.scroll_button {
   position: absolute;
   right: 50%;
   bottom: -10%;
@@ -59,10 +59,10 @@
   animation-duration: 2s;
   animation-name: ping-pong;
   animation-iteration-count: infinite;
-}
 
-.scrollBtn:hover {
-  animation-play-state: paused;
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 @keyframes ping-pong {
   0% {
@@ -76,15 +76,15 @@
   }
 }
 @media (min-width: 75rem) {
-  .hero-container {
+  .hero {
     flex-direction: row;
     flex-wrap: nowrap;
     margin-top: 3rem;
 
-    .mobile-image {
+    .hero__image--mobile {
       display: none;
     }
-    .desktop-image {
+    .hero__image--desktop {
       display: flex;
       /* avoid the ::after to cause horizontal scroll */
       overflow: hidden;
@@ -109,7 +109,7 @@
         filter: blur(10px); /* Add a blur effect for smoothness */
       }
 
-      .image-row {
+      .hero__image--desktop__row {
         width: fit-content;
         height: fit-content;
         display: inherit;
@@ -130,7 +130,7 @@
         width: 100%;
       }
     }
-    .hero-description {
+    .hero__description {
       text-align: left;
       justify-content: start;
       align-items: start;
@@ -149,7 +149,7 @@
         font-size: clamp(1rem, 1.5vw, 1.3rem);
       }
     }
-    .scrollBtn {
+    .scroll_button {
       width: 3.5rem;
       position: absolute;
       right: 20%;

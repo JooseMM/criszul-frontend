@@ -93,14 +93,14 @@ body {
   position: relative;
   top: -4.8rem;
 }
-.main-button {
+.button {
   padding: 0.9rem 3rem;
   border-radius: 1.5rem;
   background-color: var(--main-color);
   font-weight: 700;
   color: var(--primary-ft-color);
 }
-.btn-border-light {
+.button__border--light {
   border-radius: 2rem;
   background: linear-gradient(
     -60deg,
@@ -139,7 +139,7 @@ body {
     background: none;
     background-color: var(--body-background);
   }
-  .btn-border-light {
+  .button__border--light {
     outline-style: solid;
     outline-width: 1px;
     outline-offset: -1px;

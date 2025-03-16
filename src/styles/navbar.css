@@ -1,10 +1,10 @@
 #desktop {
   display: none;
 }
-.desktop-navigation {
+.home__header__desktop {
   display: none;
 }
-header {
+.home__header {
   position: relative;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@ header {
   max-width: 90rem;
   margin: 0 auto;
 }
-.logo {
+.home__header__logo {
   color: var(--primary-ft-color);
   font-size: var(--secundary-header-ft-size);
   font-weight: 600;
@@ -24,7 +24,7 @@ header {
   position: absolute;
   z-index: 100;
   right: 2rem;
-  top: 4rem;
+  top: 5rem;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -36,9 +36,6 @@ header {
 }
 .box__content--navbar {
   padding: 2.5rem 3.5rem;
-}
-.open-menu {
-  display: flex;
 }
 @media (min-width: 60rem) {
   #navBtn {
@@ -57,7 +54,7 @@ header {
     }
   }
 
-  .desktop-navigation {
+  .home__header__desktop {
     display: flex;
     justify-content: space-between;
 
