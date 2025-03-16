@@ -41,7 +41,7 @@
   #navBtn {
     display: none;
   }
-  header {
+  .home__header {
     align-items: center;
     padding: 2.5rem 4rem;
 

@@ -47,7 +47,7 @@
 
   p {
     margin-block: 0.7rem 1rem;
-    max-width: clamp(15rem, 75%, 30rem);
+    max-width: clamp(16rem, 75%, 30rem);
   }
 }
 .scroll_button {
