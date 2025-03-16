@@ -39,6 +39,7 @@
   --body-background: #090d0f;
   --body-light-background: #11171b;
   --box-background: rgba(13, 17, 21, 0.7);
+  --box-background-solid: #0d1115;
   /* border */
   --gradient-light-color: #b4b5b7;
   --gradient-transparent-color: rgba(180, 181, 183, 0);
@@ -75,12 +76,16 @@ b {
   color: var(--primary-ft-color);
   font-weight: 950;
 }
+html {
+  background-color: var(--body-background);
+}
 body {
   background: linear-gradient(
-    120deg,
+    180deg,
     var(--body-light-background),
-    var(--body-background)
+    var(--body-background) 50%
   );
+  background-repeat: no-repeat;
   color: var(--secundary-ft-color);
   font-family: "Poppins", sans-serif;
 }
@@ -107,8 +112,7 @@ body {
   width: fit-content;
   transition: ease-in-out 200ms;
 }
-.box-border {
-  border-radius: 2rem;
+.box {
   background: linear-gradient(
     -40deg,
     var(--gradient-transparent-color),
@@ -118,11 +122,10 @@ body {
   padding: 1px;
   width: fit-content;
 }
-.box-content {
+.box__content {
   border-radius: inherit;
   background-color: var(--box-background);
   backdrop-filter: blur(5px);
-  padding: 2.5rem 3.5rem;
 }
 /* tablet devices */
 @media (min-width: 43rem) {
