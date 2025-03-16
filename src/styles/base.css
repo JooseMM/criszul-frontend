@@ -131,7 +131,7 @@ body {
 @media (min-width: 43rem) {
 }
 /* desktop devices */
-@media (min-width: 60rem) {
+@media (min-width: 75rem) {
   main {
     padding-inline: 4rem;
   }
