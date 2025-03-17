@@ -30,6 +30,12 @@
     }
   }
 }
+#formErrorMessage {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  color: var(--error-color);
+}
 .box--contact {
   border-radius: 1.5rem;
   max-width: 90%;
@@ -48,6 +54,10 @@
   input {
     display: block;
     max-width: 100%;
+  }
+
+  .contact__input--invalid {
+    border: 0.1rem solid var(--error-color);
   }
 
   label {
@@ -72,6 +82,9 @@
     padding: 0.7rem 1.3rem;
     color: var(--primary-ft-color);
     border-radius: 0.7rem;
+  }
+  div {
+    position: relative;
   }
 }
 .contact__button {
