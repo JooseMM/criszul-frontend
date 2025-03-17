@@ -1,6 +1,5 @@
 {
   "name": "criszul",
-  "module": "index.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

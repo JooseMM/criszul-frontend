@@ -28,5 +28,3 @@ document.addEventListener("click", (event: MouseEvent) => {
   }
   mobileNav.style.display = "none"; // Close the menu otherwise
 });
-
-console.log("compiled!");
