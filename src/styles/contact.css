@@ -1,0 +1,113 @@
+.contact {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/images/contact-us.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  h2 {
+    font-weight: 400;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  b {
+    font-weight: 700;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-block: 2rem 4rem;
+    column-gap: 1rem;
+
+    &:hover {
+      color: var(--primary-ft-color);
+    }
+  }
+}
+.box--contact {
+  border-radius: 1.5rem;
+  max-width: 90%;
+}
+.box__content--form {
+  background: var(--box-background-solid);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  div:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  label,
+  input {
+    display: block;
+    max-width: 100%;
+  }
+
+  label {
+    font-size: 1.2rem;
+    color: var(--primary-ft-color);
+    margin-bottom: 0.5rem;
+    margin-left: 1.3rem;
+  }
+  textarea {
+    background: none;
+    max-width: 100%;
+    border: solid 1px #2f3b46;
+    padding: 0.7rem 1.3rem;
+    color: var(--primary-ft-color);
+    border-radius: 0.7rem;
+    resize: none;
+  }
+
+  input {
+    background: none;
+    border: solid 1px #2f3b46;
+    padding: 0.7rem 1.3rem;
+    color: var(--primary-ft-color);
+    border-radius: 0.7rem;
+  }
+}
+.contact__button {
+  border: 0.1rem solid var(--main-color);
+  border-radius: 1.5rem;
+  background-color: var(--secundary-color);
+  padding: var(--button-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+@media (min-width: 43.5rem) {
+  .contact {
+    a {
+      margin-block: 3rem 4rem;
+    }
+  }
+}
+@media (min-width: 60rem) {
+  .contact {
+    h2 {
+      margin-bottom: 4rem;
+    }
+  }
+  .box--contact {
+    width: 100%;
+    max-width: 35rem;
+  }
+  .box__content--form {
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+}

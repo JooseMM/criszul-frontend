@@ -75,11 +75,17 @@
     transform: translate(50%, 0);
   }
 }
+@media (min-width: 62rem) {
+  .hero {
+    max-width: 70rem;
+  }
+}
 @media (min-width: 75rem) {
   .hero {
     flex-direction: row;
     flex-wrap: nowrap;
     margin-top: 3rem;
+    margin-inline: auto;
 
     .hero__image--mobile {
       display: none;
@@ -144,6 +150,7 @@
       }
 
       .main-button {
+        display: block;
         padding: 1rem 3rem;
         border-radius: 3rem;
         font-size: clamp(1rem, 1.5vw, 1.3rem);
@@ -151,10 +158,16 @@
     }
     .scroll_button {
       width: 3.5rem;
+      cursor: pointer;
       position: absolute;
       right: 20%;
       top: 110%;
       transform: none;
     }
+  }
+}
+@media (min-width: 93rem) {
+  .hero {
+    max-width: 85rem;
   }
 }

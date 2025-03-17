@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 8rem;
+  padding-top: 8rem;
   justify-content: center;
   row-gap: 7rem;
 
@@ -10,6 +10,9 @@
     width: 90%;
     max-width: 20rem;
 
+    li {
+      margin-inline: auto;
+    }
     li:not(:last-child) {
       margin-bottom: 2rem;
     }
@@ -28,7 +31,7 @@
   top: 25%;
   left: 20%;
   border-radius: inherit;
-  background: var(--box-background) url(../../public/images/van.png);
+  background: var(--box-background) url(/public/images/van.png);
   background-size: 125%;
   background-position: 0.5rem 160%;
   background-repeat: no-repeat;
@@ -53,7 +56,7 @@
   border: 0.1rem solid #fff;
   border-radius: 1.8rem;
   position: relative;
-  background-image: url("../../public/images/benefit.png");
+  background-image: url("/public/images/benefit.png");
   background-size: 180%;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,7 +166,7 @@
     align-items: start;
     row-gap: 0;
     column-gap: 10vw;
-    margin-top: 10rem;
+    padding-top: 10rem;
 
     ul {
       display: block;
@@ -171,6 +174,7 @@
       max-width: none;
     }
     li {
+      margin-inline: none;
       max-width: none;
     }
   }

@@ -48,13 +48,8 @@
   --main-color: #3b5e7e;
   --secundary-color: #d6dee4;
   --soft-gray-color: #aebbca;
-  /* shadow  */
-}
-
-main {
-  max-width: 90rem;
-  margin: 0 auto;
-  padding-inline: 1rem;
+  /* padding  */
+  --button-padding: 0.9rem 3rem;
 }
 
 h1,
@@ -78,6 +73,7 @@ b {
 }
 html {
   background-color: var(--body-background);
+  scroll-behavior: smooth;
 }
 body {
   background: linear-gradient(
@@ -94,6 +90,7 @@ body {
   top: -4.8rem;
 }
 .button {
+  display: block;
   padding: 0.9rem 3rem;
   border-radius: 1.5rem;
   background-color: var(--main-color);
@@ -101,6 +98,7 @@ body {
   color: var(--primary-ft-color);
 }
 .button__border--light {
+  display: block;
   border-radius: 2rem;
   background: linear-gradient(
     -60deg,
@@ -108,7 +106,7 @@ body {
     20%,
     #819cb5
   );
-  padding: 1px;
+  padding: 0.1rem 0.15rem;
   width: fit-content;
   transition: ease-in-out 200ms;
 }
@@ -127,13 +125,47 @@ body {
   background-color: var(--box-background);
   backdrop-filter: blur(5px);
 }
+footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 5rem;
+  justify-items: center;
+  grid-row-gap: 3rem;
+
+  .footer__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-ft-color);
+  }
+  .footer__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-ft-color);
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5rem;
+
+    li,
+    a {
+      line-height: 116%;
+      letter-spacing: 0.15rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
 /* tablet devices */
 @media (min-width: 43rem) {
 }
 /* desktop devices */
 @media (min-width: 75rem) {
   main {
-    padding-inline: 4rem;
   }
   body {
     background: none;
@@ -147,6 +179,19 @@ body {
 
     &:hover {
       outline-color: var(--secundary-ft-color);
+    }
+  }
+  footer {
+    padding-block: 6rem;
+    margin-inline: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+    width: 100%;
+    max-width: 45rem;
+    align-items: start;
+
+    ul {
+      align-items: start;
     }
   }
 }

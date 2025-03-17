@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="src/styles/hero-section.css" />
     <link rel="stylesheet" href="src/styles/benefit.css" />
     <link rel="stylesheet" href="src/styles/testimonials.css" />
+    <link rel="stylesheet" href="src/styles/contact.css" />
     <!-- Typescript -->
     <script src="/src/scripts/navbarMenuBehavior.ts" defer></script>
   </head>
@@ -89,12 +90,12 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
             amet massa mauris. Suspendisse potenti.
           </p>
-          <div class="button__border--light">
-            <button class="button">Contactanos</button>
-          </div>
-          <button class="scroll_button">
+          <a href="#contacto" class="button__border--light">
+            <span class="button">Contactanos</span>
+          </a>
+          <a href="#beneficios" class="scroll_button">
             <img src="icons/arrow-down.png" />
-          </button>
+          </a>
         </div>
         <!-- desktop images -->
         <div class="hero__image--desktop">
@@ -106,7 +107,7 @@
         </div>
       </section>
       <!-- Benefits -->
-      <section class="benefits">
+      <section id="beneficios" class="benefits">
         <div class="benefits__images">
           <div class="benefits__floating_box">
             <h4>Tu envio <b>facil</b>, <b>rapido</b> y <b>seguro.</b></h4>
@@ -123,7 +124,7 @@
               <div class="box--benefits__image">
                 <!-- content image -->
                 <div class="box__content box__content--image">
-                  <img src="public/icons/velocimeter.png" />
+                  <img src="icons/velocimeter.png" />
                 </div>
               </div>
               <p>
@@ -141,7 +142,7 @@
               <div class="box--benefits__image">
                 <!-- content image -->
                 <div class="box__content box__content--image">
-                  <img src="public/icons/shield.png" />
+                  <img src="icons/shield.png" />
                 </div>
               </div>
               <p>
@@ -159,7 +160,7 @@
               <div class="box--benefits__image">
                 <!-- content image -->
                 <div class="box__content box__content--image">
-                  <img src="public/icons/handshake.png" />
+                  <img src="icons/handshake.png" />
                 </div>
               </div>
               <p>
@@ -170,12 +171,12 @@
           </li>
         </ul>
       </section>
-      <section class="testimonials">
+      <section id="testimonios" class="testimonials">
         <h2>¡Nuestros<br /><b>clientes</b> hablan!</h2>
         <div class="testimonials__container">
           <div class="box box--testimonials">
             <div class="box__content box__content--testimonials">
-              <img src="public/images/testimonial.png" />
+              <img src="images/testimonial.png" />
               <div>
                 <span>Daniel Garren</span>
                 <p>
@@ -187,7 +188,7 @@
           </div>
           <div class="box box--testimonials">
             <div class="box__content box__content--testimonials">
-              <img src="public/images/testimonial.png" />
+              <img src="images/testimonial.png" />
               <div>
                 <span>Daniel Garren</span>
                 <p>
@@ -199,7 +200,7 @@
           </div>
           <div class="box box--testimonials">
             <div class="box__content box__content--testimonials">
-              <img src="public/images/testimonial.png" />
+              <img src="images/testimonial.png" />
               <div>
                 <span>Daniel Garren</span>
                 <p>
@@ -211,13 +212,70 @@
           </div>
         </div>
       </section>
+      <section id="contacto" class="contact">
+        <h2>¡Pongamonos en <br /><b>contacto</b>!</h2>
+        <!-- border -->
+        <div class="box box--contact">
+          <!-- content -->
+          <form class="box__content box__content--form">
+            <div>
+              <label for="fullName">Nombre</label>
+              <input
+                type="text"
+                minlength="2"
+                name="fullName"
+                placeholder="Ejem: Luis Ramirez"
+              />
+            </div>
+            <div>
+              <label for="email">Correo Electronico</label>
+              <input
+                type="text"
+                minlength="2"
+                name="email"
+                placeholder="Ejem: Luis Ramirez"
+              />
+            </div>
+            <div>
+              <label for="message">Mensaje</label>
+              <textarea
+                rows="4"
+                name="message"
+                placeholder="Ejem: Me encantaria realizar mis envios con ustedes!"
+              ></textarea>
+            </div>
+            <button class="contact__button">Enviar</button>
+          </form>
+        </div>
+        <a href="tel:+56945348585">
+          <img src="icons/phone.png" />
+          (+56) 9 4534 8585
+        </a>
+      </section>
     </main>
 
-    <!-- Footer Section 
+    <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 Your Brand. All Rights Reserved.</p>
-      <a href="/privacy-policy">Privacy Policy</a>
+      <ul>
+        <li>
+          <a class="footer__logo" href="/">Criszul</a>
+        </li>
+        <li>
+          <p>&copy; Copyright 2025.</p>
+        </li>
+      </ul>
+      <ul>
+        <li class="footer__title">Enlaces</li>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="#benefits">Beneficios</a></li>
+        <li><a href="#testimonies">Testimonios</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+
+      <ul>
+        <li class="footer__title">Redes Sociales</li>
+        <li>Correo Electronico</li>
+      </ul>
     </footer>
--->
   </body>
 </html>
