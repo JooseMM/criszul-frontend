@@ -1,5 +1,5 @@
 .testimonials {
-  padding-top: clamp(5rem, 10vw, 5rem);
+  padding-block: clamp(5rem, 10vw, 5rem) 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
