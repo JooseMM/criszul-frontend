@@ -1,8 +1,7 @@
-const formInputElements = [
-  document.getElementById("formName"),
-  document.getElementById("formEmail"),
-  document.getElementById("formMessage"),
-];
+const formName = document.getElementById("formName") as HTMLInputElement;
+const formEmail = document.getElementById("formEmail") as HTMLInputElement;
+const formMessage = document.getElementById("formMessage") as HTMLInputElement;
+const formInputElements = [formName, formEmail, formMessage];
 
 const form = document.querySelector("form") as HTMLFormElement;
 form.noValidate = true; // avoid the default validation
@@ -42,19 +41,23 @@ const onBlur = (event: Event): void => {
 // check validation state and return an error message or null
 const updateErrorState = (target: HTMLInputElement): void => {
   const state = target.validity;
+  const regex = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜü0-9¡!.,\s¿?]+$/; // for textarea
   let error = "";
 
   if (state.tooShort) {
     error = "Nombre invalido, minimo dos caracteres";
   }
-  if (state.valueMissing) {
-    error = "Campo requerido";
+  if (target.name === "message" && !regex.test(target.value)) {
+    error = "Solo numeros, signos de puntuacion y exclamacion";
   }
   if (state.patternMismatch) {
-    error = "Campo no permite numeros o caracteres especiales";
+    error = "Solo se permiten letras y espacios";
   }
   if (state.typeMismatch) {
     error = "Email invalido";
+  }
+  if (state.valueMissing) {
+    error = "Campo requerido";
   }
 
   if (!error) {
@@ -98,10 +101,17 @@ form.onsubmit = (event: Event) => {
     return;
   }
 
+  const requestBody = {
+    name: formName.value.trim(),
+    email: formEmail.value.trim(),
+    message: formMessage.value.trim(),
+  };
+
   fetch("", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify(requestBody),
   });
 };
