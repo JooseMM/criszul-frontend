@@ -1,57 +1,107 @@
-/* input reference */
+const formInputElements = [
+  document.getElementById("formName"),
+  document.getElementById("formEmail"),
+  document.getElementById("formMessage"),
+];
 
-const formName = document.getElementById("formName");
-const formEmail = document.getElementById("formEmail");
-const formMessage = document.getElementById("formMessage");
+const form = document.querySelector("form") as HTMLFormElement;
+form.noValidate = true; // avoid the default validation
 
-// create error element
-const errorElement = document.createElement("span");
-errorElement.id = "formErrorMessage";
+const submitButton = document.getElementById(
+  "submitButton",
+) as HTMLButtonElement;
 
-const addOrChangeError = (
-  target: HTMLInputElement,
-  parent: ParentNode,
-  message: string | null,
-  previousError: Element | null,
-) => {
-  if (!message) {
-    return;
+type InputNames = "fullname" | "email" | "message";
+
+const errorArray = new Map<InputNames, string>();
+
+const addOrUpdateErrorElement = (target: HTMLInputElement) => {
+  const error = errorArray.has(target.name as InputNames);
+
+  if (!error) {
+    return; // if error is not found do nothing
+  } else {
+    // create a new span element
+    const errorElement = document.createElement("span");
+    // set its message
+    errorElement.innerHTML = errorArray.get(target.name as InputNames)!;
+    // add the input invalid border
+    target.classList.add("contact__input--invalid");
+    // append the element as a child
+    target.parentElement?.appendChild(errorElement);
   }
-  /* if and error is not found append a new errorElement */
-  if (!previousError) {
-    console.log(message);
-    parent.appendChild(errorElement);
-  }
-  console.log(message);
-  target.innerText = message; // change the message;
 };
-//.contact__input--invalid
-/* input validation */
-formName!.onblur = (event: Event) => {
+
+const onBlur = (event: Event): void => {
   const target = event.currentTarget as HTMLInputElement;
-  const targetParent = target.parentNode!;
-  const previousError = targetParent.querySelector(errorElement.id);
-  const errorMessage = checkValidationState(target.validity);
 
-  // if there is no error remove the element
-  if (!errorMessage && previousError) {
-    return targetParent.removeChild(previousError);
-  }
-  addOrChangeError(target, targetParent, errorMessage, previousError);
+  updateErrorState(target);
+  addOrUpdateErrorElement(target);
 };
 
-const checkValidationState = (state: ValidityState): string | null => {
+// check validation state and return an error message or null
+const updateErrorState = (target: HTMLInputElement): void => {
+  const state = target.validity;
+  let error = "";
+
   if (state.tooShort) {
-    return "El campo debe de contener mas 2 caracteres";
+    error = "Nombre invalido, minimo dos caracteres";
   }
   if (state.valueMissing) {
-    return "El campo es requerido";
+    error = "Campo requerido";
   }
   if (state.patternMismatch) {
-    return "El campo no permite numeros o caracteres especiales";
+    error = "Campo no permite numeros o caracteres especiales";
   }
   if (state.typeMismatch) {
-    return "El email es invalido";
+    error = "Email invalido";
   }
-  return null;
+
+  if (!error) {
+    // remove it if no error is found
+    errorArray.delete(target.name as InputNames);
+    submitButton.disabled = errorArray.size ? true : false;
+    return;
+  }
+  // if there is a new error push the new error
+  errorArray.set(target.name as InputNames, error);
+  submitButton.disabled = true;
+};
+
+const onFocus = (event: Event) => {
+  const target = event.currentTarget as HTMLInputElement;
+  const parentTarget = target.parentElement!;
+  const previousError = parentTarget.querySelector("span");
+
+  if (!previousError) {
+    return;
+  }
+  target.classList.remove("contact__input--invalid");
+  parentTarget.removeChild(previousError);
+};
+
+// add the logic to each input
+formInputElements.forEach((input) => {
+  input!.onblur = onBlur;
+  input!.onfocus = onFocus;
+});
+
+form.onsubmit = (event: Event) => {
+  event.preventDefault();
+
+  formInputElements.forEach((input) => {
+    updateErrorState(input as HTMLInputElement);
+    addOrUpdateErrorElement(input as HTMLInputElement);
+  });
+
+  if (errorArray.size) {
+    return;
+  }
+
+  fetch("", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
