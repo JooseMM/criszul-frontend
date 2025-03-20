@@ -93,11 +93,12 @@
 }
 .contact__button {
   border: 0.1rem solid var(--main-color);
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   /* add a little bit of margin for the error message */
   margin-top: 0.3rem;
   background-color: var(--secundary-color);
-  padding: var(--button-padding);
+  padding-inline: 3rem;
+  height: 3.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +107,9 @@
 
   &:disabled {
     opacity: 0.7;
+  }
+  img {
+    animation: spin 2s linear infinite;
   }
 }
 
@@ -131,5 +135,14 @@
     textarea {
       width: 100%;
     }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

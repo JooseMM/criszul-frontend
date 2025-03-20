@@ -41,7 +41,7 @@ const onBlur = (event: Event): void => {
 // check validation state and return an error message or null
 const updateErrorState = (target: HTMLInputElement): void => {
   const state = target.validity;
-  const regex = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜü0-9¡!.,\s¿?]+$/; // for textarea
+  const regex = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜü0-9¡!.,\s¿?]+$/; // for textarea only
   let error = "";
 
   if (state.tooShort) {
@@ -89,6 +89,22 @@ formInputElements.forEach((input) => {
   input!.onfocus = onFocus;
 });
 
+const onSendingMessage = () => {
+  const loadingImage = document.createElement("img");
+  loadingImage.src = "icons/loading.png";
+  submitButton.replaceChildren(loadingImage);
+};
+
+const onMessageDeliver = () => {
+  submitButton.innerHTML = "Mensaje Enviado!";
+  submitButton.disabled = true;
+};
+
+const onFailure = () => {
+  submitButton.innerHTML = "Error, intentelo mas tarde";
+  submitButton.disabled = true;
+};
+
 form.onsubmit = (event: Event) => {
   event.preventDefault();
 
@@ -107,11 +123,22 @@ form.onsubmit = (event: Event) => {
     message: formMessage.value.trim(),
   };
 
-  fetch("", {
+  onSendingMessage();
+
+  fetch("http://localhost:3000", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(requestBody),
-  });
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.successful) {
+        onMessageDeliver();
+      } else {
+        onFailure();
+      }
+    })
+    .catch(() => onFailure());
 };
