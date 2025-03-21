@@ -12,18 +12,20 @@ const submitButton = document.getElementById(
 
 type InputNames = "fullname" | "email" | "message";
 
-const errorArray = new Map<InputNames, string>();
+const errorList = new Map<InputNames, string>();
 
-const addOrUpdateErrorElement = (target: HTMLInputElement) => {
-  const error = errorArray.has(target.name as InputNames);
-
+const addOrUpdateErrorElement = (
+  target: HTMLInputElement,
+  errorList: Map<InputNames, string>,
+) => {
+  const error = errorList.has(target.name as InputNames);
   if (!error) {
     return; // if error is not found do nothing
   } else {
     // create a new span element
     const errorElement = document.createElement("span");
     // set its message
-    errorElement.innerHTML = errorArray.get(target.name as InputNames)!;
+    errorElement.innerHTML = errorList.get(target.name as InputNames)!;
     // add the input invalid border
     target.classList.add("contact__input--invalid");
     // append the element as a child
@@ -35,7 +37,7 @@ const onBlur = (event: Event): void => {
   const target = event.currentTarget as HTMLInputElement;
 
   updateErrorState(target);
-  addOrUpdateErrorElement(target);
+  addOrUpdateErrorElement(target, errorList);
 };
 
 // check validation state and return an error message or null
@@ -62,12 +64,12 @@ const updateErrorState = (target: HTMLInputElement): void => {
 
   if (!error) {
     // remove it if no error is found
-    errorArray.delete(target.name as InputNames);
-    submitButton.disabled = errorArray.size ? true : false;
+    errorList.delete(target.name as InputNames);
+    submitButton.disabled = errorList.size ? true : false;
     return;
   }
   // if there is a new error push the new error
-  errorArray.set(target.name as InputNames, error);
+  errorList.set(target.name as InputNames, error);
   submitButton.disabled = true;
 };
 
@@ -110,10 +112,10 @@ form.onsubmit = (event: Event) => {
 
   formInputElements.forEach((input) => {
     updateErrorState(input as HTMLInputElement);
-    addOrUpdateErrorElement(input as HTMLInputElement);
+    addOrUpdateErrorElement(input as HTMLInputElement, errorList);
   });
 
-  if (errorArray.size) {
+  if (errorList.size) {
     return;
   }
 
