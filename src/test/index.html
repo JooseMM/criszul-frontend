@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
   </head>
   <body>
+    <header class="home__header">
+      <a class="home__header__logo" href="/">Criszul</a>
+      <!-- mobile navigation -->
+      <nav>
+        <div id="popUpMenu" style="display: none;" class="box toggle--box">
+          <ul id="linkContainer" class="box__content box__content--navbar">
+            <li><a style="color: #fff">Inicio</a></li>
+            <li><a>Beneficios</a></li>
+            <li><a>Testimonios</a></li>
+            <li><a>Contacto</a></li>
+          </ul>
+        </div>
+        <button id="navBtn">
+          <img
+            src="../../public/icons/hamburguer-button.svg"
+            width="35"
+            height="35"
+          />
+        </button>
+        </div>
+      </nav>
+    </header>
     <div id="mocha"></div>
-    <form style="margin-top: 20vw" class="box__content box__content--form">
+    <form style="display: none" class="box__content box__content--form">
       <div>
         <label for="fullName">Nombre</label>
         <input
@@ -47,6 +69,14 @@
     </form>
     <script src="https://unpkg.com/chai@4/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script>
+      mocha.setup("bdd");
+    </script>
+    <script src="navbar.spec.ts"></script>
     <script src="updateErrorState.spec.ts"></script>
+    <script src="addOrUpdateErrorElement.spec.ts"></script>
+    <script>
+      mocha.run();
+    </script>
   </body>
 </html>

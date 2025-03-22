@@ -1,20 +1,19 @@
+import type { InputNames } from "../models/InputNames";
+
 const formName = document.getElementById("formName") as HTMLInputElement;
 const formEmail = document.getElementById("formEmail") as HTMLInputElement;
 const formMessage = document.getElementById("formMessage") as HTMLInputElement;
 const formInputElements = [formName, formEmail, formMessage];
 
 const form = document.querySelector("form") as HTMLFormElement;
-form.noValidate = true; // avoid the default validation
 
 const submitButton = document.getElementById(
   "submitButton",
 ) as HTMLButtonElement;
 
-type InputNames = "fullname" | "email" | "message";
-
 const errorList = new Map<InputNames, string>();
 
-const addOrUpdateErrorElement = (
+export const addOrUpdateErrorElement = (
   target: HTMLInputElement,
   errorList: Map<InputNames, string>,
 ) => {
@@ -36,12 +35,15 @@ const addOrUpdateErrorElement = (
 const onBlur = (event: Event): void => {
   const target = event.currentTarget as HTMLInputElement;
 
-  updateErrorState(target);
+  updateErrorState(target, errorList);
   addOrUpdateErrorElement(target, errorList);
 };
 
 // check validation state and return an error message or null
-const updateErrorState = (target: HTMLInputElement): void => {
+export const updateErrorState = (
+  target: HTMLInputElement,
+  errorList: Map<InputNames, string>,
+): void => {
   const state = target.validity;
   const regex = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜü0-9¡!.,\s¿?]+$/; // for textarea only
   let error = "";
@@ -111,7 +113,7 @@ form.onsubmit = (event: Event) => {
   event.preventDefault();
 
   formInputElements.forEach((input) => {
-    updateErrorState(input as HTMLInputElement);
+    updateErrorState(input as HTMLInputElement, errorList);
     addOrUpdateErrorElement(input as HTMLInputElement, errorList);
   });
 

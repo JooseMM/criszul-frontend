@@ -1,57 +1,15 @@
 import { expect } from "chai";
-
-type InputNames = "fullname" | "email" | "message";
-
-mocha.setup("bdd");
+import { updateErrorState } from "../scripts/formBehavior.ts";
 
 describe("HTML Input Validation", function () {
   let submitButton: HTMLButtonElement;
-  let updateErrorState: (
-    target: HTMLInputElement,
-    errorList: Map<InputNames, string>,
-  ) => void;
+  type InputNames = "fullname" | "email" | "message";
   let errorList: Map<InputNames, string>;
 
   beforeEach(() => {
     submitButton = document.getElementById(
       "submitButton",
     )! as HTMLButtonElement;
-
-    updateErrorState = (
-      target: HTMLInputElement,
-      errorList: Map<InputNames, string>,
-    ): void => {
-      const state = target.validity;
-      const regex = /^[A-Za-zÁáÉéÍíÓóÚúÑñÜü0-9¡!.,\s¿?]+$/; // for textarea only
-      let error = "";
-
-      if (state.tooShort) {
-        error = "Nombre invalido, minimo dos caracteres";
-      }
-      if (target.name === "message" && !regex.test(target.value)) {
-        error = "Solo numeros, signos de puntuacion y exclamacion";
-      }
-      if (state.patternMismatch) {
-        error = "Solo se permiten letras y espacios";
-      }
-      if (state.typeMismatch) {
-        error = "Email invalido";
-      }
-      if (state.valueMissing) {
-        error = "Campo requerido";
-      }
-
-      if (!error) {
-        // remove it if no error is found
-        errorList.delete(target.name as InputNames);
-        submitButton.disabled = errorList.size ? true : false;
-        return;
-      }
-
-      // if there is a new error push the new error
-      errorList.set(target.name as InputNames, error);
-      submitButton.disabled = true;
-    };
     errorList = new Map<InputNames, string>();
   });
 
@@ -63,7 +21,7 @@ describe("HTML Input Validation", function () {
     });
 
     it("it should add an error to the list", () => {
-      input.value = "Ana <script>alert('Im a hacker! hehe')</scrip>";
+      input.value = "Hello! <script>hehe hacker</script>";
       input.checkValidity();
       updateErrorState(input, errorList);
       expect(errorList.size).to.be.equal(1);
@@ -132,5 +90,3 @@ describe("HTML Input Validation", function () {
     });
   });
 });
-
-mocha.run();

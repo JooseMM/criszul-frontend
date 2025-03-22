@@ -9,22 +9,18 @@ const toggleNavigationMenu = (): void => {
     mobileNav.style.display = "none";
   }
 };
-
-/* set initial display state */
-mobileNav.style.display = "none";
-/* adding behavior to the navbar menu button */
-menuBtn.onclick = toggleNavigationMenu;
-
-/* when anything else but the menu is click close it */
-document.addEventListener("click", (event: MouseEvent) => {
+export const onClickWhileMenuOpen = (event: MouseEvent): void => {
   const target = event.target as Node;
-  if (
-    mobileNav === target || // if menu container press
-    mobileNav.children[0] === target || // if the anchor list container press
-    menuBtn === target || // if the mobile menu button is press
-    menuBtn.contains(target) // if the button image is press
-  ) {
-    return; // Ignore clicks on the menu or menu button
+  const isMenuPress = mobileNav === target || mobileNav.children[0] === target;
+  const isButtonPress = menuBtn === target || menuBtn.children[0] === target;
+  const isMenuOpen = mobileNav.style.display === "flex";
+
+  if (isMenuOpen && !isMenuPress && !isButtonPress) {
+    toggleNavigationMenu();
   }
-  mobileNav.style.display = "none"; // Close the menu otherwise
-});
+  if (isButtonPress) {
+    toggleNavigationMenu();
+  }
+};
+/* when anything else but the menu is click close it */
+document.onclick = onClickWhileMenuOpen;
