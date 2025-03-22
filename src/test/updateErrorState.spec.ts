@@ -1,11 +1,10 @@
 import { expect } from "chai";
-import { JSDOM } from "jsdom";
 
 type InputNames = "fullname" | "email" | "message";
 
+mocha.setup("bdd");
+
 describe("HTML Input Validation", function () {
-  let dom;
-  let document: Document;
   let submitButton: HTMLButtonElement;
   let updateErrorState: (
     target: HTMLInputElement,
@@ -14,51 +13,6 @@ describe("HTML Input Validation", function () {
   let errorList: Map<InputNames, string>;
 
   beforeEach(() => {
-    // Set up the DOM before each test
-    dom = new JSDOM(`
-      <html>
-        <body>
-	  <form>
-            <div>
-              <label for="fullName">Nombre</label>
-              <input
-                id="formName"
-                type="text"
-                minlength="2"
-                required
-                pattern="^[A-Za-zÁáÉéÍíÓóÚúÑñÜü\\s]+$"
-                name="fullname"
-                placeholder="Ejem: Luis Ramirez"
-              />
-            </div>
-            <div>
-              <label for="email">Correo Electronico</label>
-              <input
-                id="formEmail"
-                type="email"
-                required
-                name="email"
-                placeholder="Ejem: Luis Ramirez"
-              />
-            </div>
-            <div>
-              <label for="message">Mensaje</label>
-              <textarea
-                id="formMessage"
-                rows="4"
-                name="message"
-                required
-                placeholder="Ejem: Me encantaria realizar mis envios con ustedes!"
-              ></textarea>
-            </div>
-            <button id="submitButton" type="submit" class="contact__button">
-              Enviar
-            </button>
-          </form>
-        </body>
-      </html>
-    `);
-    document = dom.window.document;
     submitButton = document.getElementById(
       "submitButton",
     )! as HTMLButtonElement;
@@ -101,7 +55,7 @@ describe("HTML Input Validation", function () {
     errorList = new Map<InputNames, string>();
   });
 
-  describe("fullname", () => {
+  describe("Fullname", () => {
     let input: HTMLInputElement;
 
     this.beforeEach(() => {
@@ -178,3 +132,5 @@ describe("HTML Input Validation", function () {
     });
   });
 });
+
+mocha.run();

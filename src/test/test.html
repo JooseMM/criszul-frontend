@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <form style="margin-top: 20vw" class="box__content box__content--form">
+      <div>
+        <label for="fullName">Nombre</label>
+        <input
+          id="formName"
+          type="text"
+          minlength="2"
+          required
+          pattern="^[A-Za-zÁáÉéÍíÓóÚúÑñÜü\s]+$"
+          name="fullname"
+          placeholder="Ejem: Luis Ramirez"
+        />
+      </div>
+      <div>
+        <label for="email">Correo Electronico</label>
+        <input
+          id="formEmail"
+          type="email"
+          required
+          name="email"
+          placeholder="Ejem: Luis Ramirez"
+        />
+      </div>
+      <div>
+        <label for="message">Mensaje</label>
+        <textarea
+          id="formMessage"
+          rows="4"
+          name="message"
+          required
+          placeholder="Ejem: Me encantaria realizar mis envios con ustedes!"
+        ></textarea>
+      </div>
+      <button id="submitButton" type="submit" class="contact__button">
+        Enviar
+      </button>
+    </form>
+    <script src="https://unpkg.com/chai@4/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script src="updateErrorState.spec.ts"></script>
+  </body>
+</html>
