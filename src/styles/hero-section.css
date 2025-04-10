@@ -42,7 +42,7 @@
   h1 {
     font-size: var(--primary-header-ft-size);
     font-weight: 950;
-    max-width: clamp(18.7rem, 90%, 43rem);
+    max-width: clamp(18.7rem, 93%, 43rem);
   }
 
   p {
