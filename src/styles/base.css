@@ -28,7 +28,7 @@
 
 :root {
   /* font size */
-  --primary-header-ft-size: clamp(1.3rem, 3.8vw, 4rem);
+  --primary-header-ft-size: clamp(1.5rem, 3.8vw, 4rem);
   --secundary-header-ft-size: clamp(1.1rem, 2.8vw, 1.3rem);
   --tertiary-header-ft-size: clamp(1rem, 2.5vw, 1.1rem);
   --base-ft-size: 1rem;

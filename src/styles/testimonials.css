@@ -30,8 +30,8 @@
   padding: 2rem 2rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 100%;
 
   img {
     border-radius: 50%;

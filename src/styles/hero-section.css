@@ -9,51 +9,54 @@
     margin-bottom: 0.8rem;
   }
 }
-.hero__image--desktop {
-  display: none;
-}
-.hero__image--mobile {
-  margin-top: 0.5rem;
+.hero__image {
+  margin-top: 5dvh;
   width: 85%;
   max-width: 43rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  order: 1;
 
   img {
+    display: block;
     width: 100%;
-    border: 0.1rem solid var(--gradient-light-color);
+    outline-width: 0.1rem;
+    outline-color: var(--gradient-light-color);
+    outline-style: solid;
+    outline-offset: -1px;
     border-radius: 1.5rem;
   }
-
-  img:not(:last-child) {
-    margin-bottom: 0.8rem;
+  .hero__image__row {
+    display: none;
   }
 }
 .hero__description {
+  margin-top: clamp(1rem, 5vw, 2rem);
   display: flex;
+  font-size: 1.1rem;
   flex-direction: column;
-  padding-block: 0.5rem;
   justify-content: center;
   align-items: center;
   text-align: center;
+  order: 2;
 
   h1 {
-    font-size: var(--primary-header-ft-size);
+    font-size: clamp(var(--primary-header-ft-size), 8vw, 2.8rem);
     font-weight: 950;
     max-width: clamp(18.7rem, 93%, 43rem);
   }
 
   p {
-    margin-block: 0.7rem 1rem;
-    max-width: clamp(16rem, 75%, 30rem);
+    margin-block: clamp(0.8rem, 4vw, 1.5rem);
+    max-width: clamp(18rem, 75%, 25rem);
   }
 }
 .scroll_button {
   position: absolute;
   right: 50%;
-  bottom: -10%;
+  bottom: -4rem;
   width: 2.5rem;
   transition: ease-in-out;
   animation-duration: 2s;
@@ -87,14 +90,11 @@
     margin-top: 3rem;
     margin-inline: auto;
 
-    .hero__image--mobile {
-      display: none;
-    }
-    .hero__image--desktop {
+    .hero__image {
       display: flex;
-      /* avoid the ::after to cause horizontal scroll */
       flex-direction: column;
       position: relative;
+      order: 2;
       z-index: 0;
 
       &::before {
@@ -103,7 +103,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 130%;
+        width: 100%;
         height: 140%;
         background: radial-gradient(
           circle,
@@ -114,7 +114,7 @@
         filter: blur(10px); /* Add a blur effect for smoothness */
       }
 
-      .hero__image--desktop__row {
+      .hero__image__row {
         width: fit-content;
         height: fit-content;
         display: inherit;
@@ -141,10 +141,10 @@
       align-items: start;
       max-width: clamp(25rem, 40vw, 38rem);
       position: relative;
+      order: 1;
 
       p {
         margin-block: 1rem;
-        max-width: 30rem;
         font-size: clamp(1rem, 1.5vw, 1.3rem);
       }
 
@@ -168,5 +168,11 @@
 @media (min-width: 93rem) {
   .hero {
     max-width: 85rem;
+  }
+}
+
+@media (min-width: 105rem) {
+  .hero__image {
+    transform: translateX(2rem);
   }
 }
