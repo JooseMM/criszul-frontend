@@ -14,7 +14,13 @@ fetch(enviroment.VITE_API!, {
     }
     return res.json();
   })
-  .then((data) => console.log(data))
+  .then((data) =>
+    console.log(
+      data.successful
+        ? "Servidor Activo"
+        : "Servidor Caido, contactese con su proveedor si el problema persiste",
+    ),
+  )
   .catch((err) =>
     console.error(
       "Http error, please contact your provider if this error persists ",
