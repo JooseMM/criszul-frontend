@@ -1,5 +1,9 @@
 import type { InputNames } from "../models/InputNames";
 
+/* import enviroment variables  */
+const enviroment = import.meta.env;
+
+/* form variables */
 const formName = document.getElementById("formName") as HTMLInputElement;
 const formEmail = document.getElementById("formEmail") as HTMLInputElement;
 const formMessage = document.getElementById("formMessage") as HTMLInputElement;
@@ -129,10 +133,11 @@ form.onsubmit = (event: Event) => {
 
   onSendingMessage();
 
-  fetch("http://localhost:3000", {
+  fetch(enviroment.VITE_API!, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      [enviroment.VITE_KEY_NAME!]: enviroment.VITE_SECRET!,
     },
     body: JSON.stringify(requestBody),
   })
