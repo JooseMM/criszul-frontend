@@ -1,7 +1,7 @@
 /* import enviroment variables  */
 const enviroment = import.meta.env;
 
-fetch(enviroment.VITE_API!, {
+fetch(`${enviroment.VITE_API!}/health`, {
   headers: {
     [enviroment.VITE_KEY_NAME!]: enviroment.VITE_SECRET!,
   },
